@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">You Have been Logged Out Successfully</h1>
+<div class="mt-5">
+    Don't have an account
+    <a class="btn btn-warning" href="{% url 'register' %}">Register here</a>
+</div>
+<div class="mt-5">
+    Already have an account??
+    <a class="btn btn-warning" href="{% url 'login' %}">Login here</a>
+</div>
+{% endblock %}

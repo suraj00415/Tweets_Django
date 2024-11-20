@@ -1,0 +1,25 @@
+{% extends "layout.html" %} 
+{% block title %} This is tweet Index page
+{%endblock %} 
+{% block content %}
+<a class="btn my-4" href="{% url 'tweet_create' %}" style="background-color: #ff7700;">Create Tweet</a>
+<div class="container row gap-5 mb-5 ">
+  {% for tweet in tweets %}
+  <div class="card" style="width: 23rem">
+    <img src="{{tweet.photo.url}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{tweet.user.username}}</h5>
+      <p class="card-text">
+        {{tweet.text}}
+      </p>
+      
+      {% if tweet.user == user %}
+      
+      <a href="{% url 'tweet_edit' tweet.id%}" class="btn " style="background-color: #ff7700;">Edit</a>
+      <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
